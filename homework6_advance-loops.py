@@ -1,32 +1,25 @@
 """
 Function with Nested Loops and if statements to print a playing board based on screen size.
+
+Maximum screen size is 28 x 118 caracters in the defualt command line windows of windows 10
 """
 
-"""
-+1234
-0 | | 
-1-----
-2 | | 
-3-----
-4 | |
+def grid(row,column):
+    #check to determin if grid is within size
+    if row > 28 or column > 118:
+        print(False)
+    else:
+        # loop to determin the row and what to print in the row
+        for r in range(row):
+            if r % 2 == 0:
+                #loop to determin what to print in the column number position
+                for c in range(column):
+                    if c % 2 == 0:
+                        print(' ', end='')
+                    elif c % 2 == 1:
+                        print('|', end='')   
+            else:
+                print('\n' + '-'*column)
+        print(True)
 
-"""
-
-def grid(row, column):
-    # Row
-    for r in range(row):
-        if r % 2 == 0:
-            # Column
-            for c in range(1, column):
-                if c % 2 == 1:
-                    if c != column:
-                        print(" ", end='')
-                    else: # Note # entering this portion of the if statement.
-                        print(' ')
-                        print(c)
-                else:
-                    print('|', end='')
-        else:
-            print('-' * column)
-
-grid(10, 10)
+grid(6, 10)
