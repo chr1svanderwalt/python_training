@@ -12,50 +12,41 @@ This function should accept two parameters: Key and Value.
 If the key exists in the dictionary and that value is the correct value, then the function should return true. 
 In all other cases, it should return false.
 """
-"""
-|-----
-|Notes
-|-----
-| -Figure out how to make a dictonary gloabl in a function
-| -Extra Credit need to be completed
-"""
 
 # Tuples that is contained in the byob dict.
-band_members = ("Serj Tankian", "Daron Malakian", "Shavo Odadjian", "John Dolmayan")
-producer = ("Rick Rubin", "Daron Malakian")
-genre = ("Nu Metal", "Trash Metal")
+band_members = ("Serj tankian", "Daron malakian", "Shavo odadjian", "John dolmayan")
+producer = ("Rick rubin", "Daron malakian")
 
-# Track Lenght Variables
-lengte_min = 4
-lengte_sec = 15
-total_seconds = lengte_min * 60 + lengte_sec
-
-# Dict. that containts all song information.
-byob = {"Song": "B.Y.O.B", 
-        "Band Memenbers": band_members, 
-        "Song Writer": "Serj Tankian", 
+# Dict. that contains all song information.
+byob = {"Song": "Byob", 
+        "Band": "System of a down",
+        "Members": band_members,
+        "Writer": "Serj tankian", 
         "Producer": producer, 
-        "Album":"Mezmarized", 
-        "Released": "March 29, 2005", 
-        "Genre": genre, 
-        "Track Lenght": total_seconds}
+        "Album": "Mezmarized", 
+        "Released": "2005", 
+        "Genre": "Metal"
+        }
 
-# loop through the dict diplaying each elemetnt of the dict   
-def favSong():    
-        for x, y in byob.items():
-                print(str(x) + ": " + str(y))
-favSong()
+# loop through the dict diplaying each element of the dict 
+for x, y in byob.items():
+       print(str(x) + ": " + str(y))
 
 
-"""
-Extra Credit
-"""
-"""
-varA = input("1. Guess the category of the a song:\n")
-varB = input("2. Guess the value of the category\n")
+# guessing game
+print("\nCategories to choose from\n")
+for category in byob:
+        print(category)
 
-def guessGame(key, value):
+varA = str.capitalize(input("\nChoose a Category: "))
+varB = str.capitalize(input("\nGuess the Awnser: "))
 
+def guess(varA, varB):
+        while True:
+                if varB == byob[varA]:
+                        print(True)
+                        break
+                else:
+                        print(False)
 
-guessGame(varA , varB)
-"""
+guess(varA,varB)
